@@ -1,3 +1,4 @@
+import 'package:Material_Calculator/helper/helperfunctions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -14,11 +15,6 @@ class Calculator extends StatefulWidget {
 }
 
 class _CalculatorState extends State<Calculator> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
   // height for the buttons of the calculator
   double buttonHeight = 70;
   double buttonWidth = 70;
@@ -40,6 +36,20 @@ class _CalculatorState extends State<Calculator> {
   String pendingOperation = "";
 
   int numCheck = 0;
+
+  getTheValue() async {
+    String s = await HelperFunctions().getCalculatedValue();
+    print(s);
+    setState(() {
+      smallOutput = s;
+    });
+  }
+
+  @override
+  void initState() {
+    getTheValue();
+    super.initState();
+  }
 
   //UI of the code
 
@@ -372,6 +382,7 @@ class _CalculatorState extends State<Calculator> {
       if (smallOutput[smallOutput.length - 1] == '0' &&
           smallOutput[smallOutput.length - 2] == '.') {
         smallOutput = smallOutput.substring(0, smallOutput.length - 2);
+        HelperFunctions().saveCalculatedValue(smallOutput);
       }
 
       output = "";

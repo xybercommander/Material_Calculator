@@ -9,7 +9,7 @@ class HelperFunctions {
   /* SET FUNCTIONS */
 
   // function for saving the value if double
-  static Future<void> saveCalculatedValueDouble(String value) async {
+  Future<void> saveCalculatedValue(String value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return await prefs.setString(sharedPreferenceResultKey, value);
   }
@@ -17,7 +17,7 @@ class HelperFunctions {
   /* GET FUNCTIONS */
 
   // function for getting the value if double
-  static Future<String> getCalculatedValueString(num value) async {
+  Future<String> getCalculatedValue() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return await prefs.getString(sharedPreferenceResultKey);
   }
