@@ -14,6 +14,11 @@ class Calculator extends StatefulWidget {
 }
 
 class _CalculatorState extends State<Calculator> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   // height for the buttons of the calculator
   double buttonHeight = 70;
   double buttonWidth = 70;
@@ -317,7 +322,7 @@ class _CalculatorState extends State<Calculator> {
 
   // Functions for logic of the code
   performOperation(String value, String operation) {
-    if (operand1 == 0) {
+    if (operand1 == null || operand1 == 0) {
       operand1 = double.parse(value);
     } else {
       operand2 = double.parse(value);
