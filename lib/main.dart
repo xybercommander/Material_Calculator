@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 
 void main() {
   runApp(MaterialApp(

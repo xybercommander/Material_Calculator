@@ -2,7 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class HelperFunctions {
   // bool isInteger(num value) =>
-  //   value is int || value == value.roundToDouble();
+  //value is int || value == value.roundToDouble();
 
   static String sharedPreferenceResultKey = "RESULT";
 
