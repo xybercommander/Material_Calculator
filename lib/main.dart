@@ -1,6 +1,7 @@
 import 'package:Material_Calculator/helper/helperfunctions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flare_flutter/flare_actor.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -49,6 +50,17 @@ class _CalculatorState extends State<Calculator> {
   void initState() {
     getTheValue();
     super.initState();
+  }
+
+  String animationName = 'switch_day';
+  void changeTheme() {
+    setState(() {
+      if (animationName == 'switch_day') {
+        animationName = 'switch_night';
+      } else {
+        animationName = 'switch_day';
+      }
+    });
   }
 
   //UI of the code
@@ -103,7 +115,31 @@ class _CalculatorState extends State<Calculator> {
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: <Widget>[
-                                  themeButton(),
+                                  // themeButton(),
+                                  GestureDetector(
+                                    onTap: () {
+                                      changeTheme();
+                                      setState(() {
+                                        if (themeState == false) {
+                                          themeState = true;
+                                        } else {
+                                          themeState = false;
+                                        }
+                                      });
+                                    },
+                                    child: Container(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 10),
+                                      height: 70,
+                                      width: 90,
+                                      child: FlareActor(
+                                        "assets/switch_daytime.flr",
+                                        alignment: Alignment.center,
+                                        fit: BoxFit.contain,
+                                        animation: animationName,
+                                      ),
+                                    ),
+                                  ),
                                   SizedBox(
                                     height: 20,
                                   ),
