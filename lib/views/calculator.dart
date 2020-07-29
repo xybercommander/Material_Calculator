@@ -33,6 +33,8 @@ class _CalculatorState extends State<Calculator> {
 
   int numCheck = 0;
 
+
+
   getTheValue() async {
     String s = await HelperFunctions().getCalculatedValue();
     print(s);
